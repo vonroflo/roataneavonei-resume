@@ -367,13 +367,97 @@
         }
         
         @media print {
-            body {
-                background: white;
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
+            
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
             .container {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                background: white !important;
+            }
+            
+            .action-buttons {
+                display: none !important;
+            }
+            
+            header {
+                padding: 30px 40px !important;
+                border-bottom: 2px solid #f0f0f0 !important;
+            }
+            
+            .content {
+                padding: 30px 40px !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1.5fr !important;
+                gap: 30px !important;
+            }
+            
+            .left-column {
+                border-right: 2px solid #f0f0f0 !important;
+                padding-right: 30px !important;
+            }
+            
+            .yellow-circle {
+                width: 120px !important;
+                height: 120px !important;
+                background: #efefef !important;
+            }
+            
+            .name-content h1 {
+                font-size: 2.2em !important;
+                color: #1a1a1a !important;
+            }
+            
+            .highlights-box {
+                background: #F0FFFF !important;
+                border-left: 4px solid #7FFFD4 !important;
+                page-break-inside: avoid;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+                margin-bottom: 20px !important;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 25px !important;
+            }
+            
+            h2 {
+                color: #1a1a1a !important;
+                page-break-after: avoid;
+            }
+            
+            h2::after {
+                background: #efefef !important;
+            }
+            
+            .contact-value a {
+                color: #1a1a1a !important;
+            }
+            
+            .company-name {
+                color: #1a1a1a !important;
+            }
+            
+            .btn:hover {
+                background: white !important;
+                border-color: #1a1a1a !important;
+                transform: none !important;
             }
         }
         
@@ -449,7 +533,7 @@
     <div class="container">
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="btn" onclick="window.print()" title="Download as PDF">
+            <button class="btn" onclick="printResume()" title="Download as PDF">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
@@ -607,6 +691,26 @@
     </div>
     
     <script>
+        function printResume() {
+            // Ensure colors are preserved in print
+            const originalStyles = document.querySelectorAll('style');
+            const printStyles = document.createElement('style');
+            printStyles.textContent = `
+                @media print {
+                    * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
+                }
+            `;
+            document.head.appendChild(printStyles);
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Clean up after printing
+            setTimeout(() => {
+                document.head.removeChild(printStyles);
+            }, 1000);
+        }
+        
         function shareResume() {
             // Check if Web Share API is supported
             if (navigator.share) {
