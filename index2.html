@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roatanea Vonei - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .btn {
+            padding: 12px;
+            border: 2px solid #1a1a1a;
+            background: white;
+            color: #1a1a1a;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .btn:hover {
+            background: #7FFFD4;
+            border-color: #7FFFD4;
+            transform: translateY(-2px);
+        }
+        
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        @media print {
+            .action-buttons {
+                display: none;
+            }
+        }
+        
+        header {
+            padding: 40px 50px;
+            position: relative;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .name-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .yellow-circle {
+            width: 140px;
+            height: 140px;
+            background: #efefef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            padding: 6px;
+        }
+        
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            border: 3px solid white;
+        }
+        
+        .initials-fallback {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            font-weight: 900;
+            color: #1a1a1a;
+        }
+        
+        .name-content h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .name-content .first-name {
+            display: block;
+        }
+        
+        .tagline {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 8px;
+        }
+        
+        .contact-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            color: #1a1a1a;
+            font-size: 0.95em;
+        }
+        
+        .contact-value a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .content {
+            padding: 40px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+        }
+        
+        .left-column {
+            border-right: 2px solid #f0f0f0;
+            padding-right: 40px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+        }
+        .roboto, body {
+  font-family: "Roboto", sans-serif;
+}
+        .space-mono-regular {
+        font-family: "Space Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .space-mono-bold, h1 {
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .space-mono-regular-italic {
+        font-family: "Space Mono", monospace;
+        font-weight: 400;
+        font-style: italic;
+        }
+
+        .space-mono-bold-italic {
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        font-style: italic;
+        }
+        
+        h2 {
+            font-size: 1.4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 4px;
+            background: #efefef;
+        }
+        
+        .profile-text {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9em;
+            color: #333;
+        }
+        
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .education-item:last-child {
+            border-bottom: none;
+        }
+        
+        .degree {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+        
+        .school {
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .language-badge {
+            background: #f8f8f8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #333;
+        }
+        
+        .job {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .job-header {
+            margin-bottom: 8px;
+        }
+        
+        .company-name {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+        
+        .job-title {
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .date {
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .job ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .job li {
+            margin-bottom: 6px;
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .highlights-box {
+            background: #F0FFFF;
+            border-left: 4px solid #7FFFD4;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .highlights-box h3 {
+            font-size: 1em;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .highlights-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .highlights-box li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        
+        .highlights-box li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #7FFFD4;
+            font-weight: 700;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                background: white !important;
+            }
+            
+            .action-buttons {
+                display: none !important;
+            }
+            
+            header {
+                padding: 30px 40px !important;
+                border-bottom: 2px solid #f0f0f0 !important;
+            }
+            
+            .content {
+                padding: 30px 40px !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1.5fr !important;
+                gap: 30px !important;
+            }
+            
+            .left-column {
+                border-right: 2px solid #f0f0f0 !important;
+                padding-right: 30px !important;
+            }
+            
+            .yellow-circle {
+                width: 120px !important;
+                height: 120px !important;
+                background: #efefef !important;
+            }
+            
+            .name-content h1 {
+                font-size: 2.2em !important;
+                color: #1a1a1a !important;
+            }
+            
+            .highlights-box {
+                background: #F0FFFF !important;
+                border-left: 4px solid #7FFFD4 !important;
+                page-break-inside: avoid;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+                margin-bottom: 20px !important;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 25px !important;
+            }
+            
+            h2 {
+                color: #1a1a1a !important;
+                page-break-after: avoid;
+            }
+            
+            h2::after {
+                background: #efefef !important;
+            }
+            
+            .contact-value a {
+                color: #1a1a1a !important;
+            }
+            
+            .company-name {
+                color: #1a1a1a !important;
+            }
+            
+            .btn:hover {
+                background: white !important;
+                border-color: #1a1a1a !important;
+                transform: none !important;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                border-radius: 4px;
+            }
+            .content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 30px 40px;
+            }
+            .left-column {
+                border-right: none;
+                border-bottom: 2px solid #f0f0f0;
+                padding-right: 0;
+                padding-bottom: 25px;
+            }
+            .name-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .yellow-circle {
+                width: 12rem;
+                height: 12rem;
+            }
+            .name-content h1 {
+                font-size: 2.2em;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            header {
+                padding: 30px 40px;
+            }
+            section {
+                margin-bottom: 25px;
+            }
+            .job {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+            header, .content {
+                padding: 20px 25px;
+            }
+            .name-content h1 {
+                font-size: 1.8em;
+            }
+            .yellow-circle {
+                width: 10rem;
+                height: 10rem;
+            }
+            .initials-fallback {
+                font-size: 2em;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn" onclick="printResume()" title="Download as PDF">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+            </button>
+            <button class="btn" onclick="shareResume()" title="Share Resume">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <header>
+            <div class="name-section">
+                <div class="yellow-circle">
+                    <!-- Replace the src URL below with your own uploaded image -->
+                    <!-- For best results: upload your photo to imgur.com, postimages.org, or host it on your own server -->
+                    <img src="https://raw.githubusercontent.com/vonroflo/roataneavonei-resume/01bf7c7a99a42aa0b701d90b95dfda523f95bd79/RoataneaVonei2025.jpeg" 
+                         alt="Roatanea Vonei" 
+                         class="profile-pic"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="initials-fallback" style="display:none;">RV</div>
+                </div>
+                <div class="name-content">
+                    <h1>
+                        <span class="first-name">Roatanea</span>
+                        Vonei
+                    </h1>
+                    <div class="tagline">Web Developer • SaaS & Automation</div>
+                </div>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">
+                        <a href="mailto:roataneavonei@gmail.com">roataneavonei@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">(Available on request)</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Address</div>
+                    <div class="contact-value">Long Beach, CA</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="left-column">
+                <section>
+                    <h2>Profile</h2>
+                    <p class="profile-text">
+                        Experienced web developer focused on building quality, scalable SaaS solutions with API integrations and automation workflows that enhance efficiency and reliability. Familiar with AI technologies and have leveraged AI tools on projects to enhance productivity, support analysis, and improve workflows. Proven ability to integrate AI-assisted capabilities into development processes while maintaining focus on delivering robust, maintainable solutions.
+                    </p>
+                </section>
+                
+                <section>
+                    <h2>Core Skills</h2>
+                    <ul class="skills-list">
+                        <li>SaaS Development</li>
+                        <li>API Integration</li>
+                        <li>Workflow Automation</li>
+                        <li>AI-Assisted Workflows</li>
+                        <li>Applied AI Tools</li>
+                        <li>UI/UX Design</li>
+                        <li>WCAG & Accessibility</li>
+                        <li>Process Optimization</li>
+                        <li>Branding & Identity</li>
+                        <li>Photoshop & Design</li>
+                        </ul>
+                </section>
+                
+                <section>
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Arts</div>
+                        <div class="school">Design & Applied Arts<br>Cal State Long Beach</div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Languages</h2>
+                    <div class="languages">
+                        <span class="language-badge">English</span>
+                        <span class="language-badge">Central Khmer</span>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <section>
+                    <h2>Work Experience</h2>
+                
+                    <!-- Yardi -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="company-name">Yardi</div>
+                            <div class="job-title">Senior Web Designer</div>
+                            <span class="date">2018 - 2025 | Ventura, CA</span>
+                        </div>
+                        <ul>
+                            <li>Held multiple roles over 7+ years including Senior Web Designer, Web Designer, and Associate Web Designer</li>
+                            <li>Worked on web design projects supporting Yardi's property management platforms</li>
+                            <li>Collaborated with teams in creating and maintaining digital design assets</li>
+                            <li>Contributed to ongoing improvements across Yardi's web-based products</li>
+                            <li>Leveraged AI tools to enhance productivity in design workflows and support analysis of user engagement metrics</li>
+                            <li>Applied AI-assisted capabilities to streamline repetitive tasks and improve efficiency in asset creation and management processes</li>
+                        </ul>
+                    </div>
+                
+                    <!-- Relief-Mart -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="company-name">Relief-Mart Inc.</div>
+                            <div class="job-title">Web Graphic Designer</div>
+                            <span class="date">2017 | Agoura Hills, CA</span>
+                        </div>
+                        <ul>
+                            <li>Designed web graphics and digital assets for e-commerce and marketing use</li>
+                            <li>Supported the creation of branded visuals for online product presentation</li>
+                        </ul>
+                    </div>
+                
+                    <!-- Mopro -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="company-name">Mopro</div>
+                            <div class="job-title">Digital Marketing Coordinator</div>
+                            <span class="date">2016 | Irvine, CA</span>
+                        </div>
+                        <ul>
+                            <li>Assisted with digital marketing efforts and coordinated online content</li>
+                            <li>Supported the production of marketing materials for client campaigns</li>
+                        </ul>
+                    </div>
+                
+                    <!-- Terranea Resort -->
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="company-name">Terranea Resort</div>
+                            <div class="job-title">Marketing Graphic Designer Intern</div>
+                            <span class="date">2015 - 2016 | Rancho Palos Verdes, CA</span>
+                        </div>
+                        <ul>
+                            <li>Created marketing graphics for hospitality promotions and events</li>
+                            <li>Supported the design needs of the resort’s marketing department</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                
+                <div class="highlights-box">
+                    <h3>Key Highlights</h3>
+                    <ul>
+                        <li>7 years of web development experience with a focus on SaaS and automation</li>
+                        <li>Experienced with API integrations and connected systems that streamline operations</li>
+                        <li>Hybrid skill set spanning UI/UX design, frontend development, and backend logic</li>
+                        <li>Proven ability to take products from initial concept to launch and ongoing iteration</li>
+                        <li>Leveraged AI tools to enhance productivity and improve workflow efficiency across development projects</li>
+                    </ul>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function printResume() {
+            // Ensure colors are preserved in print
+            const originalStyles = document.querySelectorAll('style');
+            const printStyles = document.createElement('style');
+            printStyles.textContent = `
+                @media print {
+                    * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
+                }
+            `;
+            document.head.appendChild(printStyles);
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Clean up after printing
+            setTimeout(() => {
+                document.head.removeChild(printStyles);
+            }, 1000);
+        }
+        
+        function shareResume() {
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Roatanea Vonei - Resume',
+                    text: 'Check out my resume - SaaS, API & Automation Developer',
+                    url: window.location.href
+                }).catch(err => console.log('Error sharing:', err));
+            } else {
+                // Fallback: Copy URL to clipboard
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Resume link copied to clipboard!');
+                }).catch(() => {
+                    // Additional fallback
+                    const textArea = document.createElement('textarea');
+                    textArea.value = url;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Resume link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
